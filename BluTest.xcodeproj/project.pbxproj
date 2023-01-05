@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F52A83CB2966DF7A0016F50E /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F52A83CA2966DF7A0016F50E /* CombineMoya */; };
+		F52A83CD2966DF7A0016F50E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F52A83CC2966DF7A0016F50E /* Moya */; };
+		F52A83D22966DFF90016F50E /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D12966DFF90016F50E /* URL+Ext.swift */; };
+		F52A83D42966E01C0016F50E /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D32966E01C0016F50E /* Encodable+Ext.swift */; };
+		F52A83D62966E02F0016F50E /* AnyPublisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D52966E02F0016F50E /* AnyPublisher+Ext.swift */; };
+		F52A83D82966E0440016F50E /* MoyaProvider+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D72966E0440016F50E /* MoyaProvider+Ext.swift */; };
+		F52A83DA2966E05D0016F50E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D92966E05D0016F50E /* NetworkError.swift */; };
+		F52A83DC2966E0730016F50E /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83DB2966E0730016F50E /* NetworkConfig.swift */; };
+		F52A83DE2966E0850016F50E /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83DD2966E0850016F50E /* NetworkProvider.swift */; };
 		F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC43752966BDBC00A8F498 /* AppDelegate.swift */; };
 		F5EC437A2966BDBC00A8F498 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC43792966BDBC00A8F498 /* ViewController.swift */; };
 		F5EC437F2966BDBF00A8F498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5EC437E2966BDBF00A8F498 /* Assets.xcassets */; };
@@ -14,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F52A83D12966DFF90016F50E /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
+		F52A83D32966E01C0016F50E /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
+		F52A83D52966E02F0016F50E /* AnyPublisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Ext.swift"; sourceTree = "<group>"; };
+		F52A83D72966E0440016F50E /* MoyaProvider+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Ext.swift"; sourceTree = "<group>"; };
+		F52A83D92966E05D0016F50E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F52A83DB2966E0730016F50E /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		F52A83DD2966E0850016F50E /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		F5EC43722966BDBC00A8F498 /* BluTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5EC43752966BDBC00A8F498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5EC43792966BDBC00A8F498 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,12 +45,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52A83CD2966DF7A0016F50E /* Moya in Frameworks */,
+				F52A83CB2966DF7A0016F50E /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F52A83CE2966DFBE0016F50E /* Infrastructures */ = {
+			isa = PBXGroup;
+			children = (
+				F52A83CF2966DFDA0016F50E /* Network */,
+			);
+			path = Infrastructures;
+			sourceTree = "<group>";
+		};
+		F52A83CF2966DFDA0016F50E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F52A83DD2966E0850016F50E /* NetworkProvider.swift */,
+				F52A83DB2966E0730016F50E /* NetworkConfig.swift */,
+				F52A83D92966E05D0016F50E /* NetworkError.swift */,
+				F52A83D02966DFED0016F50E /* Extension */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F52A83D02966DFED0016F50E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F52A83D52966E02F0016F50E /* AnyPublisher+Ext.swift */,
+				F52A83D32966E01C0016F50E /* Encodable+Ext.swift */,
+				F52A83D72966E0440016F50E /* MoyaProvider+Ext.swift */,
+				F52A83D12966DFF90016F50E /* URL+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		F5EC43692966BDBC00A8F498 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				F5EC43892966C50100A8F498 /* Application */,
+				F52A83CE2966DFBE0016F50E /* Infrastructures */,
 				F5EC438B2966C53D00A8F498 /* Resource */,
 				F5EC43792966BDBC00A8F498 /* ViewController.swift */,
 			);
@@ -105,6 +154,10 @@
 			dependencies = (
 			);
 			name = BluTest;
+			packageProductDependencies = (
+				F52A83CA2966DF7A0016F50E /* CombineMoya */,
+				F52A83CC2966DF7A0016F50E /* Moya */,
+			);
 			productName = BluTest;
 			productReference = F5EC43722966BDBC00A8F498 /* BluTest.app */;
 			productType = "com.apple.product-type.application";
@@ -133,6 +186,9 @@
 				Base,
 			);
 			mainGroup = F5EC43692966BDBC00A8F498;
+			packageReferences = (
+				F52A83C92966DF7A0016F50E /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = F5EC43732966BDBC00A8F498 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -159,8 +215,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52A83D62966E02F0016F50E /* AnyPublisher+Ext.swift in Sources */,
+				F52A83DA2966E05D0016F50E /* NetworkError.swift in Sources */,
+				F52A83DE2966E0850016F50E /* NetworkProvider.swift in Sources */,
 				F5EC437A2966BDBC00A8F498 /* ViewController.swift in Sources */,
+				F52A83D82966E0440016F50E /* MoyaProvider+Ext.swift in Sources */,
+				F52A83D22966DFF90016F50E /* URL+Ext.swift in Sources */,
 				F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */,
+				F52A83DC2966E0730016F50E /* NetworkConfig.swift in Sources */,
+				F52A83D42966E01C0016F50E /* Encodable+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +439,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F52A83C92966DF7A0016F50E /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F52A83CA2966DF7A0016F50E /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F52A83C92966DF7A0016F50E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		F52A83CC2966DF7A0016F50E /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F52A83C92966DF7A0016F50E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F5EC436A2966BDBC00A8F498 /* Project object */;
 }

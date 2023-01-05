@@ -9,9 +9,21 @@ import Foundation
 
 final class AppConfiguration {
     static var apiBaseURL: String = {
-        guard let apiBaseURL = Bundle.main.object(forInfoDictionaryKey: "ApiBaseURL") as? String else {
+        guard let apiBaseURL = infoForKey("ApiBaseURL") else {
             fatalError("ApiBaseURL must not be empty in plist")
         }
         return apiBaseURL
     }()
+
+    static var imageBaseURL: String = {
+        guard let apiBaseURL = infoForKey("ApiBaseURL") else {
+            fatalError("ApiBaseURL must not be empty in plist")
+        }
+        return apiBaseURL
+    }()
+
+    private static func infoForKey(_ key: String) -> String? {
+        return (Bundle.main.infoDictionary?[key] as? String)?
+            .replacingOccurrences(of: "\\", with: "")
+    }
 }

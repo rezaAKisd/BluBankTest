@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Moya
 
 final class AppDIContainer {
     // MARK: - Network
@@ -14,6 +13,12 @@ final class AppDIContainer {
     lazy var apiDataTransferService: DataTransferService = {
         let config = ApiDataNetworkConfig(baseURL: URL(string: AppConfiguration.apiBaseURL)!,
                                           queryParameters: [:],
+                                          timeoutInterval: 10)
+        return NetworkProvider(config: config)
+    }()
+
+    lazy var imageDataTransferService: DataTransferService = {
+        let config = ApiDataNetworkConfig(baseURL: URL(string: AppConfiguration.imageBaseURL)!,
                                           timeoutInterval: 10)
         return NetworkProvider(config: config)
     }()

@@ -18,9 +18,15 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-        navigationController.navigationBar.isHidden = true
+        let apiService = appDIContainer.apiDataTransferService
+        let imgService = appDIContainer.imageDataTransferService
+        let moviesSceneDI = HomeDIContainer(dependencies: .init(apiDataTransferService: apiService,
+                                                                imageDataTransferService: imgService))
 
-        let vc = ViewController()
-        navigationController.pushViewController(vc, animated: true)
+        let homeCoordinator = HomeFlowCoordinator(navigationController: navigationController,
+                                                  dependencies: moviesSceneDI)
+
+        coordinate(to: homeCoordinator)
+        childCoordinators.append(homeCoordinator)
     }
 }

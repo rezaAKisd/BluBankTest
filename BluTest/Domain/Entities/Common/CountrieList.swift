@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Countrie: Equatable, Identifiable, Hashable {
+struct Country: Equatable, Identifiable, Hashable {
     let id: String
     let name: String?
     let capital: String?

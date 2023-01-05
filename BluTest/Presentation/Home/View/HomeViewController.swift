@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
     
     private func setUpTableView() {
         tableView.register(UINib(nibName: "CountrieTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: CountrieTableViewCell.reuseId)
+                           forCellReuseIdentifier: CountryTableViewCell.reuseId)
         tableView.register(HostingTableViewCell<EmptyView>.self, forCellReuseIdentifier: HostingTableViewCell<EmptyView>.reuseId)
         
         tableView.delegate = self
@@ -110,7 +110,7 @@ class HomeViewController: UIViewController {
             cell.host(EmptyView(), parent: self)
             return cell
         case .countries(let countrie):
-            let cell: CountrieTableViewCell = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
+            let cell: CountryTableViewCell = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
             cell.fill(with: .init(countrie: countrie),
                       imageRepository: imageRepository)
             

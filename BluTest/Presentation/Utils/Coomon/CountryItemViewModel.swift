@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CountrieItemViewModel: Equatable, Hashable {
+struct CountryItemViewModel: Equatable, Hashable {
     let id: String
     let name: String?
     let capital: String?
@@ -17,8 +17,8 @@ struct CountrieItemViewModel: Equatable, Hashable {
     let imageURL: String?
 }
 
-extension CountrieItemViewModel {
-    init(countrie: Countrie) {
+extension CountryItemViewModel {
+    init(countrie: Country) {
         self.id = countrie.id
         self.name = countrie.name ?? ""
         self.capital = countrie.capital ?? ""

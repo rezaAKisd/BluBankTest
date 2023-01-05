@@ -8,12 +8,12 @@
 import Combine
 import UIKit
 
-class CountrieTableViewCell: UITableViewCell {
+class CountryTableViewCell: UITableViewCell {
     public var disposBag = Set<AnyCancellable>()
     static let height = CGFloat(130)
 
     private var shimmerLayer: CALayer?
-    private var viewModel: CountrieItemViewModel!
+    private var viewModel: CountryItemViewModel!
     private var posterImagesRepository: ImageRepositoryInterface?
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -24,7 +24,7 @@ class CountrieTableViewCell: UITableViewCell {
     
     
     
-    func fill(with viewModel: CountrieItemViewModel, imageRepository: ImageRepositoryInterface?) {
+    func fill(with viewModel: CountryItemViewModel, imageRepository: ImageRepositoryInterface?) {
         self.viewModel = viewModel
         self.posterImagesRepository = imageRepository
 

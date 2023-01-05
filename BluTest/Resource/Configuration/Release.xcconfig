@@ -12,3 +12,4 @@ BLU_APP_NAME = BluTest
 BLU_APP_VERSION = 1
 BLU_BUILD_VERSION = 1
 BLU_APP_BUNDLE_ID = com.akbari.reza.BluTestRelease
+BLU_API_BASE_URL = https:\/\/restcountries.com/

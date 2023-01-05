@@ -16,6 +16,10 @@
 		F52A83DA2966E05D0016F50E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D92966E05D0016F50E /* NetworkError.swift */; };
 		F52A83DC2966E0730016F50E /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83DB2966E0730016F50E /* NetworkConfig.swift */; };
 		F52A83DE2966E0850016F50E /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83DD2966E0850016F50E /* NetworkProvider.swift */; };
+		F52A83E22966E4A00016F50E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83E12966E4A00016F50E /* Coordinator.swift */; };
+		F52A83E42966E4D20016F50E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83E32966E4D20016F50E /* AppCoordinator.swift */; };
+		F52A83E62966E4E80016F50E /* AppConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83E52966E4E80016F50E /* AppConfigurations.swift */; };
+		F52A83E92966E52B0016F50E /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83E82966E52B0016F50E /* AppDIContainer.swift */; };
 		F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC43752966BDBC00A8F498 /* AppDelegate.swift */; };
 		F5EC437A2966BDBC00A8F498 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC43792966BDBC00A8F498 /* ViewController.swift */; };
 		F5EC437F2966BDBF00A8F498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5EC437E2966BDBF00A8F498 /* Assets.xcassets */; };
@@ -30,6 +34,10 @@
 		F52A83D92966E05D0016F50E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F52A83DB2966E0730016F50E /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		F52A83DD2966E0850016F50E /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		F52A83E12966E4A00016F50E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F52A83E32966E4D20016F50E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F52A83E52966E4E80016F50E /* AppConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurations.swift; sourceTree = "<group>"; };
+		F52A83E82966E52B0016F50E /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		F5EC43722966BDBC00A8F498 /* BluTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5EC43752966BDBC00A8F498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5EC43792966BDBC00A8F498 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +91,22 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		F52A83E02966E4810016F50E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F52A83E12966E4A00016F50E /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F52A83E72966E5000016F50E /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				F52A83E82966E52B0016F50E /* AppDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
 		F5EC43692966BDBC00A8F498 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				F5EC43892966C50100A8F498 /* Application */,
+				F52A83E02966E4810016F50E /* Coordinator */,
 				F52A83CE2966DFBE0016F50E /* Infrastructures */,
 				F5EC438B2966C53D00A8F498 /* Resource */,
 				F5EC43792966BDBC00A8F498 /* ViewController.swift */,
@@ -113,7 +138,10 @@
 		F5EC43892966C50100A8F498 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				F52A83E52966E4E80016F50E /* AppConfigurations.swift */,
+				F52A83E32966E4D20016F50E /* AppCoordinator.swift */,
 				F5EC43752966BDBC00A8F498 /* AppDelegate.swift */,
+				F52A83E72966E5000016F50E /* DIContainer */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -121,10 +149,10 @@
 		F5EC438B2966C53D00A8F498 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				F5EC438E2966C80F00A8F498 /* Configuration */,
 				F5EC437E2966BDBF00A8F498 /* Assets.xcassets */,
-				F5EC43802966BDBF00A8F498 /* LaunchScreen.storyboard */,
 				F5EC43832966BDBF00A8F498 /* Info.plist */,
+				F5EC43802966BDBF00A8F498 /* LaunchScreen.storyboard */,
+				F5EC438E2966C80F00A8F498 /* Configuration */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -215,14 +243,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52A83E42966E4D20016F50E /* AppCoordinator.swift in Sources */,
 				F52A83D62966E02F0016F50E /* AnyPublisher+Ext.swift in Sources */,
 				F52A83DA2966E05D0016F50E /* NetworkError.swift in Sources */,
+				F52A83E22966E4A00016F50E /* Coordinator.swift in Sources */,
 				F52A83DE2966E0850016F50E /* NetworkProvider.swift in Sources */,
 				F5EC437A2966BDBC00A8F498 /* ViewController.swift in Sources */,
 				F52A83D82966E0440016F50E /* MoyaProvider+Ext.swift in Sources */,
 				F52A83D22966DFF90016F50E /* URL+Ext.swift in Sources */,
 				F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */,
+				F52A83E92966E52B0016F50E /* AppDIContainer.swift in Sources */,
 				F52A83DC2966E0730016F50E /* NetworkConfig.swift in Sources */,
+				F52A83E62966E4E80016F50E /* AppConfigurations.swift in Sources */,
 				F52A83D42966E01C0016F50E /* Encodable+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

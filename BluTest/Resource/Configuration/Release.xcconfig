@@ -1,0 +1,14 @@
+//
+//  Release.xcconfig
+//  BluTest
+//
+//  Created by reza akbari on 1/5/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BLU_APP_NAME = BluTest
+BLU_APP_VERSION = 1
+BLU_BUILD_VERSION = 1
+BLU_APP_BUNDLE_ID = com.akbari.reza.BluTestRelease

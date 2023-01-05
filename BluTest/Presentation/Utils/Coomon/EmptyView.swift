@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EmptyView: View {
     var emptyTitle: String {
-        return NSLocalizedString("Any Selected Countrie", comment: "")
+        return NSLocalizedString("Any Selected Country", comment: "")
     }
 
     var body: some View {

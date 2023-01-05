@@ -37,6 +37,7 @@
 		F52A841B2967500C0016F50E /* CountrieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52A84192967500C0016F50E /* CountrieTableViewCell.xib */; };
 		F52A841D2967521C0016F50E /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A841C2967521C0016F50E /* UITableView+Ext.swift */; };
 		F52A841F296758A90016F50E /* CountrieItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A841E296758A90016F50E /* CountrieItemViewModel.swift */; };
+		F52A842229676A440016F50E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F52A842429676A440016F50E /* Localizable.strings */; };
 		F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC43752966BDBC00A8F498 /* AppDelegate.swift */; };
 		F5EC437F2966BDBF00A8F498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5EC437E2966BDBF00A8F498 /* Assets.xcassets */; };
 		F5EC43822966BDBF00A8F498 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5EC43802966BDBF00A8F498 /* LaunchScreen.storyboard */; };
@@ -71,6 +72,9 @@
 		F52A84192967500C0016F50E /* CountrieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountrieTableViewCell.xib; sourceTree = "<group>"; };
 		F52A841C2967521C0016F50E /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		F52A841E296758A90016F50E /* CountrieItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrieItemViewModel.swift; sourceTree = "<group>"; };
+		F52A842329676A440016F50E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F52A842529676A6A0016F50E /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F52A842629676A6C0016F50E /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F5EC43722966BDBC00A8F498 /* BluTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5EC43752966BDBC00A8F498 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5EC437E2966BDBF00A8F498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 				F5EC437E2966BDBF00A8F498 /* Assets.xcassets */,
 				F5EC43832966BDBF00A8F498 /* Info.plist */,
 				F5EC43802966BDBF00A8F498 /* LaunchScreen.storyboard */,
+				F52A842429676A440016F50E /* Localizable.strings */,
 				F5EC438E2966C80F00A8F498 /* Configuration */,
 			);
 			path = Resource;
@@ -376,6 +381,7 @@
 				F5EC436E2966BDBC00A8F498 /* Sources */,
 				F5EC436F2966BDBC00A8F498 /* Frameworks */,
 				F5EC43702966BDBC00A8F498 /* Resources */,
+				F52A842729676CD10016F50E /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -412,6 +418,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fa,
 			);
 			mainGroup = F5EC43692966BDBC00A8F498;
 			packageReferences = (
@@ -432,12 +439,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5EC43822966BDBF00A8F498 /* LaunchScreen.storyboard in Resources */,
+				F52A842229676A440016F50E /* Localizable.strings in Resources */,
 				F5EC437F2966BDBF00A8F498 /* Assets.xcassets in Resources */,
 				F52A841B2967500C0016F50E /* CountrieTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F52A842729676CD10016F50E /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F5EC436E2966BDBC00A8F498 /* Sources */ = {
@@ -478,10 +507,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F52A842429676A440016F50E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F52A842329676A440016F50E /* en */,
+				F52A842629676A6C0016F50E /* fa */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F5EC43802966BDBF00A8F498 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F5EC43812966BDBF00A8F498 /* Base */,
+				F52A842529676A6A0016F50E /* fa */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -494,6 +533,7 @@
 			baseConfigurationReference = F5EC438C2966C7F200A8F498 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -556,6 +596,7 @@
 			baseConfigurationReference = F5EC438D2966C80700A8F498 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

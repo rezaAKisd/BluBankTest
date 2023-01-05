@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  BluTest
+
+  Created by reza akbari on 1/5/23.
+  
+*/
+
+"Any Selected Country" = "شما هیچ کشور انتخاب شده ای ندارید.";
+"Country List" = "لیست کشورها";
+"Selected Countries" = "کشور های انتخاب شده";

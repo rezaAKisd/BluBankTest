@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  BluTest
+
+  Created by reza akbari on 1/5/23.
+  
+*/
+
+"Any Selected Country" = "you don't have any selected country";
+"Country List" = "Country List";
+"Selected Countries" = "Selected Countries";

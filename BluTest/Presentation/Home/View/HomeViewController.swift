@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupNavigarionButton(){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Countrie List", comment: ""),
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Country List", comment: ""),
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(goToCountrieList))

@@ -47,19 +47,19 @@ class HomeViewController: UIViewController {
         setUpConstraints()
     }
     
-    private func setupNavigarionButton(){
+    private func setupNavigarionButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Country List", comment: ""),
                                                             style: .plain,
                                                             target: self,
-                                                            action: #selector(goToCountrieList))
+                                                            action: #selector(goToCountryList))
     }
     
-    @objc func goToCountrieList(){
-        //To Do
+    @objc func goToCountryList() {
+        // To Do
     }
     
     private func setUpTableView() {
-        tableView.register(UINib(nibName: "CountrieTableViewCell", bundle: nil),
+        tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil),
                            forCellReuseIdentifier: CountryTableViewCell.reuseId)
         tableView.register(HostingTableViewCell<EmptyView>.self, forCellReuseIdentifier: HostingTableViewCell<EmptyView>.reuseId)
         
@@ -109,9 +109,9 @@ class HomeViewController: UIViewController {
             let cell: HostingTableViewCell<EmptyView> = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
             cell.host(EmptyView(), parent: self)
             return cell
-        case .countries(let countrie):
+        case .country(let country):
             let cell: CountryTableViewCell = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
-            cell.fill(with: .init(countrie: countrie),
+            cell.fill(with: .init(country: country),
                       imageRepository: imageRepository)
             
             return cell
@@ -120,8 +120,8 @@ class HomeViewController: UIViewController {
 
     private func updateViewState(_ state: HomeViewModelStates) {
         switch state {
-        case .selectedCountriesList(let countries):
-            viewModel.applyDataSource(viewState: .selectedCountriesList(countries))
+        case .selectedCountryList(let countries):
+            viewModel.applyDataSource(viewState: .selectedCountryList(countries))
             viewModel.state.value = .none
         default:
             break

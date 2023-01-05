@@ -1,5 +1,5 @@
 //
-//  CountrieTableViewCell.swift
+//  CountryTableViewCell.swift
 //  BluTest
 //
 //  Created by reza akbari on 1/5/23.
@@ -20,7 +20,7 @@ class CountryTableViewCell: UITableViewCell {
     @IBOutlet weak var capitalLabel: UILabel!
     @IBOutlet weak var continentLabel: UILabel!
     @IBOutlet weak var timezoneLabel: UILabel!
-    @IBOutlet weak var countrieImageView: UIImageView!
+    @IBOutlet weak var countryImageView: UIImageView!
     
     
     
@@ -36,14 +36,14 @@ class CountryTableViewCell: UITableViewCell {
     }
 
     private func updateImage() {
-        countrieImageView.image = nil
+        countryImageView.image = nil
         guard let imageURL = viewModel.imageURL else { return }
 
         posterImagesRepository?.fetchImage(with: imageURL)
             .sink(receiveCompletion: ({ _ in }), receiveValue: { [weak self] data in
                 guard let self, self.viewModel.imageURL == imageURL else { return }
                 if case let data = data {
-                    self.countrieImageView.image = UIImage(data: data)
+                    self.countryImageView.image = UIImage(data: data)
                 }
             }).store(in: &disposBag)
     }
@@ -81,7 +81,7 @@ class CountryTableViewCell: UITableViewCell {
         capitalLabel.text = nil
         continentLabel.text = nil
         timezoneLabel.text = nil
-        countrieImageView.image = nil
+        countryImageView.image = nil
         shimmerLayer?.removeFromSuperlayer()
     }
 }

@@ -24,7 +24,7 @@
 		F52A83F22966FBF10016F50E /* HomeDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83F12966FBF10016F50E /* HomeDIContainer.swift */; };
 		F52A83F4296708660016F50E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83F3296708660016F50E /* HomeViewController.swift */; };
 		F52A83F6296709CA0016F50E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83F5296709CA0016F50E /* HomeViewModel.swift */; };
-		F52A83FB296723410016F50E /* CountrieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83FA296723410016F50E /* CountrieList.swift */; };
+		F52A83FB296723410016F50E /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83FA296723410016F50E /* Country.swift */; };
 		F52A83FD296724D10016F50E /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83FC296724D10016F50E /* HomeDatasource.swift */; };
 		F52A84012967259F0016F50E /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A84002967259F0016F50E /* Array+Ext.swift */; };
 		F52A840729672F1F0016F50E /* ImageRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */; };
@@ -59,7 +59,7 @@
 		F52A83F12966FBF10016F50E /* HomeDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDIContainer.swift; sourceTree = "<group>"; };
 		F52A83F3296708660016F50E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F52A83F5296709CA0016F50E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		F52A83FA296723410016F50E /* CountrieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrieList.swift; sourceTree = "<group>"; };
+		F52A83FA296723410016F50E /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		F52A83FC296724D10016F50E /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
 		F52A84002967259F0016F50E /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryInterface.swift; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 		F52A83F7296722F20016F50E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				F52A840229672EF30016F50E /* Interfaces */,
 				F52A83F8296722F60016F50E /* Entities */,
+				F52A840229672EF30016F50E /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -208,7 +208,7 @@
 		F52A83F92967232D0016F50E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F52A83FA296723410016F50E /* CountrieList.swift */,
+				F52A83FA296723410016F50E /* Country.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -492,7 +492,7 @@
 				F52A83D22966DFF90016F50E /* URL+Ext.swift in Sources */,
 				F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */,
 				F52A840729672F1F0016F50E /* ImageRepositoryInterface.swift in Sources */,
-				F52A83FB296723410016F50E /* CountrieList.swift in Sources */,
+				F52A83FB296723410016F50E /* Country.swift in Sources */,
 				F52A83FD296724D10016F50E /* HomeDatasource.swift in Sources */,
 				F52A840C29672FFE0016F50E /* ImageRepository.swift in Sources */,
 				F52A83F4296708660016F50E /* HomeViewController.swift in Sources */,

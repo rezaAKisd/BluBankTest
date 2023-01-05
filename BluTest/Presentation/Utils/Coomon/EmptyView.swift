@@ -14,7 +14,7 @@ struct EmptyView: View {
 
     var body: some View {
         VStack {
-            Image("countrie")
+            Image("country")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)

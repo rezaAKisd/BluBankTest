@@ -11,18 +11,18 @@ import Foundation
 enum HomeViewModelStates: Equatable {
     case none
     case empty
-    case selectedCountriesList([Country])
+    case selectedCountryList([Country])
 }
 
 protocol HomeViewModelInput {
     func viewDidLoad()
-    func showCountrieList(with list: [Country])
+    func showCountryList(with list: [Country])
 }
 
 protocol HomeViewModelOutput {
     var state: CurrentValueSubject<HomeViewModelStates, Never> { get }
     var homeDatasource: HomeDatasource? { get set }
-    var selectedCountriesList: [Country] { get set }
+    var selectedCountryList: [Country] { get set }
     var itemCount: Int { get }
     var isEmpty: Bool { get }
     var screenTitle: String { get }
@@ -40,7 +40,7 @@ class HomeViewModel: HomeViewModelInterface {
 
     var state = CurrentValueSubject<HomeViewModelStates, Never>(.empty)
     var homeDatasource: HomeDatasource?
-    var selectedCountriesList: [Country] = []
+    var selectedCountryList: [Country] = []
     var itemCount: Int { return homeDatasource?.snapshot().numberOfItems ?? 0 }
     var isEmpty: Bool { return homeDatasource?.snapshot().numberOfItems ?? 0 < 1 }
     let screenTitle = NSLocalizedString("Selected Countries", comment: "")
@@ -69,8 +69,8 @@ class HomeViewModel: HomeViewModelInterface {
         }
 
         switch viewState {
-        case .selectedCountriesList(let countries):
-            selectedCountriesList.append(contentsOf: countries)
+        case .selectedCountryList(let countries):
+            selectedCountryList.append(contentsOf: countries)
             
             if countries.isEmpty {
                 clearSnapshot(&snapshot)
@@ -80,7 +80,7 @@ class HomeViewModel: HomeViewModelInterface {
                 if currentItems.contains(where: { $0.isEmpty }) {
                     snapshot.deleteItems(currentItems)
                 }
-                snapshot.appendItems(countries.map(HomeItem.countries), toSection: .selectedCountries)
+                snapshot.appendItems(countries.map(HomeItem.country), toSection: .selectedCountries)
             }
         case .empty:
             clearSnapshot(&snapshot)
@@ -103,7 +103,7 @@ class HomeViewModel: HomeViewModelInterface {
 extension HomeViewModel {
     func viewDidLoad() {}
 
-    func showCountrieList(with list: [Country]) {
-        coordinator?.showCountriesList()
+    func showCountryList(with list: [Country]) {
+        coordinator?.showCountryList()
     }
 }

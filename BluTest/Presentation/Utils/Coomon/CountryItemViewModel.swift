@@ -1,5 +1,5 @@
 //
-//  CountrieItemViewModel.swift
+//  CountryItemViewModel.swift
 //  BluTest
 //
 //  Created by reza akbari on 1/5/23.
@@ -18,14 +18,14 @@ struct CountryItemViewModel: Equatable, Hashable {
 }
 
 extension CountryItemViewModel {
-    init(countrie: Country) {
-        self.id = countrie.id
-        self.name = countrie.name ?? ""
-        self.capital = countrie.capital ?? ""
-        self.region = countrie.region ?? ""
-        self.continent = countrie.continent ?? ""
-        self.timezones = countrie.timezones ?? ""
-        self.imageURL = countrie.imageURL
+    init(country: Country) {
+        self.id = country.id
+        self.name = country.name ?? ""
+        self.capital = country.capital ?? ""
+        self.region = country.region ?? ""
+        self.continent = country.continent ?? ""
+        self.timezones = country.timezones ?? ""
+        self.imageURL = country.imageURL
     }
 }
 

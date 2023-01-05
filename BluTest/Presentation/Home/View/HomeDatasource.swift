@@ -16,7 +16,7 @@ enum HomeSection: Hashable {
 
 enum HomeItem: Hashable {
     case empty(UUID)
-    case countries(Country)
+    case country(Country)
 
     var isEmpty: Bool {
         switch self {

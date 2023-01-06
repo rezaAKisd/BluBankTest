@@ -11,7 +11,7 @@ import Foundation
 enum HomeViewModelStates: Equatable {
     case none
     case empty
-    case selectedCountryList([Country])
+    case selectedCountryList(CountryList)
 }
 
 protocol HomeViewModelInput {

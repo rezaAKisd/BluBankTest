@@ -24,15 +24,26 @@ final class CountryListDIContainer: CountryListDependencies {
         self.dependencies = dependencies
     }
 
+    // MARK: - Use Cases
+
+    func makeCountryListUseCase() -> CountryListUseCaseInterface {
+        return CountryListUseCase(countryListRepository: makeCountryListRepository())
+    }
+    
     // MARK: - Repository
 
+    func makeCountryListRepository() -> CountryListRepositoryInterface {
+        return CountryListRepository(dataTransferService: dependencies.apiDataTransferService)
+    }
+    
     func imagesRepository() -> ImageRepositoryInterface {
         return ImageRepository(dataTransferService: dependencies.apiDataTransferService)
     }
-
-    // MARK: - Home
+    
+    // MARK: - Country List
 
     func countryListViewModel(coordinator: CountryListFlows) -> CountryListViewModelInterface {
-        return CountryListViewModel(coordinator: coordinator)
+        return CountryListViewModel(countryListUseCase: makeCountryListUseCase(),
+                                    coordinator: coordinator)
     }
 }

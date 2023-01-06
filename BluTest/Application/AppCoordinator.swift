@@ -20,13 +20,14 @@ class AppCoordinator: Coordinator {
     func start() {
         let apiService = appDIContainer.apiDataTransferService
         let imgService = appDIContainer.imageDataTransferService
-        let moviesSceneDI = HomeDIContainer(dependencies: .init(apiDataTransferService: apiService,
-                                                                imageDataTransferService: imgService))
+        let homeSceneDI = HomeDIContainer(dependencies: .init(apiDataTransferService: apiService,
+                                                              imageDataTransferService: imgService))
 
         let homeCoordinator = HomeFlowCoordinator(navigationController: navigationController,
-                                                  dependencies: moviesSceneDI)
+                                                  appDIContainer: appDIContainer,
+                                                  dependencies: homeSceneDI)
 
-        coordinate(to: homeCoordinator)
         childCoordinators.append(homeCoordinator)
+        coordinate(to: homeCoordinator)
     }
 }

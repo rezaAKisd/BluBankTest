@@ -45,6 +45,10 @@
 		F5F078982968111C0055A742 /* CountryListResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078972968111C0055A742 /* CountryListResponseDTO+Mapping.swift */; };
 		F5F0789B296815830055A742 /* CountryListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F0789A296815830055A742 /* CountryListRepository.swift */; };
 		F5F0789D296815B90055A742 /* CountryListRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F0789C296815B90055A742 /* CountryListRepositoryInterface.swift */; };
+		F5F078A529681D210055A742 /* CountryListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078A429681D210055A742 /* CountryListFlowCoordinator.swift */; };
+		F5F078A7296825360055A742 /* CountryListDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078A6296825360055A742 /* CountryListDIContainer.swift */; };
+		F5F078A9296825CF0055A742 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078A8296825CF0055A742 /* CountryListViewModel.swift */; };
+		F5F078AB296825EB0055A742 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078AA296825EB0055A742 /* CountryListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +94,10 @@
 		F5F078972968111C0055A742 /* CountryListResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryListResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		F5F0789A296815830055A742 /* CountryListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListRepository.swift; sourceTree = "<group>"; };
 		F5F0789C296815B90055A742 /* CountryListRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListRepositoryInterface.swift; sourceTree = "<group>"; };
+		F5F078A429681D210055A742 /* CountryListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListFlowCoordinator.swift; sourceTree = "<group>"; };
+		F5F078A6296825360055A742 /* CountryListDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListDIContainer.swift; sourceTree = "<group>"; };
+		F5F078A8296825CF0055A742 /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
+		F5F078AA296825EB0055A742 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +156,7 @@
 			children = (
 				F52A83E82966E52B0016F50E /* AppDIContainer.swift */,
 				F52A83F12966FBF10016F50E /* HomeDIContainer.swift */,
+				F5F078A6296825360055A742 /* CountryListDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -155,6 +164,7 @@
 		F52A83EA2966FAC30016F50E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F5F078A029681B670055A742 /* CountryList */,
 				F52A83EB2966FACD0016F50E /* Home */,
 				F52A83FE296725850016F50E /* Utils */,
 			);
@@ -243,6 +253,7 @@
 		F52A840229672EF30016F50E /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				F5F0789E29681B100055A742 /* Common */,
 				F52A840329672EFC0016F50E /* CountryList */,
 			);
 			path = Interfaces;
@@ -259,7 +270,6 @@
 		F52A840429672F000016F50E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */,
 				F5F0789C296815B90055A742 /* CountryListRepositoryInterface.swift */,
 			);
 			path = Repositories;
@@ -407,6 +417,56 @@
 			path = CountryList;
 			sourceTree = "<group>";
 		};
+		F5F0789E29681B100055A742 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F5F0789F29681B1C0055A742 /* Repositories */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F5F0789F29681B1C0055A742 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F5F078A029681B670055A742 /* CountryList */ = {
+			isa = PBXGroup;
+			children = (
+				F5F078A129681B6F0055A742 /* Flow */,
+				F5F078A229681B750055A742 /* View */,
+				F5F078A329681B790055A742 /* ViewModel */,
+			);
+			path = CountryList;
+			sourceTree = "<group>";
+		};
+		F5F078A129681B6F0055A742 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				F5F078A429681D210055A742 /* CountryListFlowCoordinator.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		F5F078A229681B750055A742 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F5F078AA296825EB0055A742 /* CountryListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F5F078A329681B790055A742 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F5F078A8296825CF0055A742 /* CountryListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,6 +582,7 @@
 				F52A83DA2966E05D0016F50E /* NetworkError.swift in Sources */,
 				F52A83E22966E4A00016F50E /* Coordinator.swift in Sources */,
 				F52A841329674AEF0016F50E /* HostingTableViewCell.swift in Sources */,
+				F5F078A9296825CF0055A742 /* CountryListViewModel.swift in Sources */,
 				F52A83DE2966E0850016F50E /* NetworkProvider.swift in Sources */,
 				F52A83F22966FBF10016F50E /* HomeDIContainer.swift in Sources */,
 				F52A83D82966E0440016F50E /* MoyaProvider+Ext.swift in Sources */,
@@ -532,7 +593,10 @@
 				F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */,
 				F5F0789B296815830055A742 /* CountryListRepository.swift in Sources */,
 				F52A840729672F1F0016F50E /* ImageRepositoryInterface.swift in Sources */,
+				F5F078A529681D210055A742 /* CountryListFlowCoordinator.swift in Sources */,
+				F5F078AB296825EB0055A742 /* CountryListViewController.swift in Sources */,
 				F52A83FB296723410016F50E /* Country.swift in Sources */,
+				F5F078A7296825360055A742 /* CountryListDIContainer.swift in Sources */,
 				F52A83FD296724D10016F50E /* HomeDatasource.swift in Sources */,
 				F52A840C29672FFE0016F50E /* ImageRepository.swift in Sources */,
 				F52A83F4296708660016F50E /* HomeViewController.swift in Sources */,

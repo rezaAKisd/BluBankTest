@@ -13,7 +13,7 @@ protocol Coordinator: AnyObject {
 
     func start()
     func coordinate(to coordinator: Coordinator)
-    func removeFromParent()
+    func removeChild(for coordinator: Coordinator)
 }
 
 extension Coordinator {
@@ -21,7 +21,13 @@ extension Coordinator {
         coordinator.start()
     }
 
-    func removeFromParent() {
-        childCoordinators.removeAll()
+    func removeChild(for coordinator: Coordinator) {
+        guard !childCoordinators.isEmpty,
+              let removeIndex = childCoordinators.firstIndex(where: { $0 === coordinator }) else { return }
+        childCoordinators.remove(at: removeIndex)
     }
+}
+
+protocol CoordinateBackDelegate: AnyObject {
+    func navigateBackToFirstPage(coordinator: Coordinator)
 }

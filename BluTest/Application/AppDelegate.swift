@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController?.view.backgroundColor = .white
 
         let navigationController = window?.rootViewController as? UINavigationController ?? UINavigationController()
-        coordinator = AppCoordinator(navigationController: navigationController, appDIContainer: appDIContainer)
+        coordinator = AppCoordinator(navigationController: navigationController,
+                                     appDIContainer: appDIContainer)
         coordinator?.start()
 
         window?.makeKeyAndVisible()

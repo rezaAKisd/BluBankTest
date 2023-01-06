@@ -39,15 +39,18 @@ class HomeViewController: UIViewController {
     // MARK: - Private
     
     private func setupViews() {
-        title = viewModel.screenTitle
-        setupNavigarionButton()
+        setupNavigarionView()
         
         setUpTableView()
         addSubviews()
         setUpConstraints()
     }
     
-    private func setupNavigarionButton() {
+    private func setupNavigarionView() {
+        title = viewModel.screenTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Country List", comment: ""),
                                                             style: .plain,
                                                             target: self,
@@ -55,13 +58,14 @@ class HomeViewController: UIViewController {
     }
     
     @objc func goToCountryList() {
-        // To Do
+        viewModel.showCountryList()
     }
     
     private func setUpTableView() {
         tableView.register(UINib(nibName: "CountryTableViewCell", bundle: nil),
                            forCellReuseIdentifier: CountryTableViewCell.reuseId)
-        tableView.register(HostingTableViewCell<EmptyView>.self, forCellReuseIdentifier: HostingTableViewCell<EmptyView>.reuseId)
+        tableView.register(HostingTableViewCell<EmptyView>.self,
+                           forCellReuseIdentifier: HostingTableViewCell<EmptyView>.reuseId)
         
         tableView.delegate = self
         tableView.keyboardDismissMode = .onDrag
@@ -79,13 +83,13 @@ class HomeViewController: UIViewController {
     }
     
     private func setUpConstraints() {
-        let topMargin: CGFloat = self.view.safeAreaInsets.top
+        let safeArea = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: topMargin),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
     }
     

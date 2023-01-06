@@ -29,7 +29,7 @@
 		F52A84012967259F0016F50E /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A84002967259F0016F50E /* Array+Ext.swift */; };
 		F52A840729672F1F0016F50E /* ImageRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */; };
 		F52A840C29672FFE0016F50E /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A840B29672FFE0016F50E /* ImageRepository.swift */; };
-		F52A84102967331E0016F50E /* ImageEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A840F2967331E0016F50E /* ImageEndPoint.swift */; };
+		F52A84102967331E0016F50E /* ImageEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A840F2967331E0016F50E /* ImageEndPoints.swift */; };
 		F52A841329674AEF0016F50E /* HostingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A841229674AEF0016F50E /* HostingTableViewCell.swift */; };
 		F52A841529674B120016F50E /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A841429674B120016F50E /* EmptyView.swift */; };
 		F52A841729674FB60016F50E /* ClassIdentifiable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A841629674FB60016F50E /* ClassIdentifiable+Ext.swift */; };
@@ -41,6 +41,10 @@
 		F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EC43752966BDBC00A8F498 /* AppDelegate.swift */; };
 		F5EC437F2966BDBF00A8F498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5EC437E2966BDBF00A8F498 /* Assets.xcassets */; };
 		F5EC43822966BDBF00A8F498 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5EC43802966BDBF00A8F498 /* LaunchScreen.storyboard */; };
+		F5F07895296810020055A742 /* CountryEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F07894296810020055A742 /* CountryEndPoints.swift */; };
+		F5F078982968111C0055A742 /* CountryListResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078972968111C0055A742 /* CountryListResponseDTO+Mapping.swift */; };
+		F5F0789B296815830055A742 /* CountryListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F0789A296815830055A742 /* CountryListRepository.swift */; };
+		F5F0789D296815B90055A742 /* CountryListRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F0789C296815B90055A742 /* CountryListRepositoryInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +68,7 @@
 		F52A84002967259F0016F50E /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryInterface.swift; sourceTree = "<group>"; };
 		F52A840B29672FFE0016F50E /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
-		F52A840F2967331E0016F50E /* ImageEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndPoint.swift; sourceTree = "<group>"; };
+		F52A840F2967331E0016F50E /* ImageEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndPoints.swift; sourceTree = "<group>"; };
 		F52A841229674AEF0016F50E /* HostingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTableViewCell.swift; sourceTree = "<group>"; };
 		F52A841429674B120016F50E /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		F52A841629674FB60016F50E /* ClassIdentifiable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassIdentifiable+Ext.swift"; sourceTree = "<group>"; };
@@ -82,6 +86,10 @@
 		F5EC43832966BDBF00A8F498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5EC438C2966C7F200A8F498 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		F5EC438D2966C80700A8F498 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		F5F07894296810020055A742 /* CountryEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryEndPoints.swift; sourceTree = "<group>"; };
+		F5F078972968111C0055A742 /* CountryListResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryListResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		F5F0789A296815830055A742 /* CountryListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListRepository.swift; sourceTree = "<group>"; };
+		F5F0789C296815B90055A742 /* CountryListRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListRepositoryInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,17 +208,17 @@
 		F52A83F8296722F60016F50E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				F52A83F92967232D0016F50E /* Common */,
+				F52A83F92967232D0016F50E /* CountryList */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		F52A83F92967232D0016F50E /* Common */ = {
+		F52A83F92967232D0016F50E /* CountryList */ = {
 			isa = PBXGroup;
 			children = (
 				F52A83FA296723410016F50E /* Country.swift */,
 			);
-			path = Common;
+			path = CountryList;
 			sourceTree = "<group>";
 		};
 		F52A83FE296725850016F50E /* Utils */ = {
@@ -235,23 +243,24 @@
 		F52A840229672EF30016F50E /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				F52A840329672EFC0016F50E /* Home */,
+				F52A840329672EFC0016F50E /* CountryList */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
-		F52A840329672EFC0016F50E /* Home */ = {
+		F52A840329672EFC0016F50E /* CountryList */ = {
 			isa = PBXGroup;
 			children = (
 				F52A840429672F000016F50E /* Repositories */,
 			);
-			path = Home;
+			path = CountryList;
 			sourceTree = "<group>";
 		};
 		F52A840429672F000016F50E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */,
+				F5F0789C296815B90055A742 /* CountryListRepositoryInterface.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -268,6 +277,7 @@
 		F52A840929672FE40016F50E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				F5F078992968156A0055A742 /* CountryList */,
 				F52A840A29672FEF0016F50E /* Common */,
 			);
 			path = Repositories;
@@ -284,6 +294,7 @@
 		F52A840D296732F30016F50E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F5F0789329680FC80055A742 /* CountryList */,
 				F52A840E296732F70016F50E /* Common */,
 			);
 			path = Network;
@@ -292,7 +303,7 @@
 		F52A840E296732F70016F50E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F52A840F2967331E0016F50E /* ImageEndPoint.swift */,
+				F52A840F2967331E0016F50E /* ImageEndPoints.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -369,6 +380,31 @@
 				F5EC438D2966C80700A8F498 /* Release.xcconfig */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		F5F0789329680FC80055A742 /* CountryList */ = {
+			isa = PBXGroup;
+			children = (
+				F5F07894296810020055A742 /* CountryEndPoints.swift */,
+				F5F07896296810E70055A742 /* DataMapping */,
+			);
+			path = CountryList;
+			sourceTree = "<group>";
+		};
+		F5F07896296810E70055A742 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				F5F078972968111C0055A742 /* CountryListResponseDTO+Mapping.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		F5F078992968156A0055A742 /* CountryList */ = {
+			isa = PBXGroup;
+			children = (
+				F5F0789A296815830055A742 /* CountryListRepository.swift */,
+			);
+			path = CountryList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,11 +509,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5F0789D296815B90055A742 /* CountryListRepositoryInterface.swift in Sources */,
 				F52A83F6296709CA0016F50E /* HomeViewModel.swift in Sources */,
 				F52A84012967259F0016F50E /* Array+Ext.swift in Sources */,
 				F52A83E42966E4D20016F50E /* AppCoordinator.swift in Sources */,
 				F52A841D2967521C0016F50E /* UITableView+Ext.swift in Sources */,
+				F5F07895296810020055A742 /* CountryEndPoints.swift in Sources */,
 				F52A83D62966E02F0016F50E /* AnyPublisher+Ext.swift in Sources */,
+				F5F078982968111C0055A742 /* CountryListResponseDTO+Mapping.swift in Sources */,
 				F52A841729674FB60016F50E /* ClassIdentifiable+Ext.swift in Sources */,
 				F52A841529674B120016F50E /* EmptyView.swift in Sources */,
 				F52A83DA2966E05D0016F50E /* NetworkError.swift in Sources */,
@@ -486,11 +525,12 @@
 				F52A83DE2966E0850016F50E /* NetworkProvider.swift in Sources */,
 				F52A83F22966FBF10016F50E /* HomeDIContainer.swift in Sources */,
 				F52A83D82966E0440016F50E /* MoyaProvider+Ext.swift in Sources */,
-				F52A84102967331E0016F50E /* ImageEndPoint.swift in Sources */,
+				F52A84102967331E0016F50E /* ImageEndPoints.swift in Sources */,
 				F52A841F296758A90016F50E /* CountryItemViewModel.swift in Sources */,
 				F52A83F02966FB1D0016F50E /* HomeFlowCoordinator.swift in Sources */,
 				F52A83D22966DFF90016F50E /* URL+Ext.swift in Sources */,
 				F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */,
+				F5F0789B296815830055A742 /* CountryListRepository.swift in Sources */,
 				F52A840729672F1F0016F50E /* ImageRepositoryInterface.swift in Sources */,
 				F52A83FB296723410016F50E /* Country.swift in Sources */,
 				F52A83FD296724D10016F50E /* HomeDatasource.swift in Sources */,

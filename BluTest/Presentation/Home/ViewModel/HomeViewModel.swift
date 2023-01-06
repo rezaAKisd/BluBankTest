@@ -16,7 +16,7 @@ enum HomeViewModelStates: Equatable {
 
 protocol HomeViewModelInput {
     func viewDidLoad()
-    func showCountryList(with list: [Country])
+    func showCountryList()
 }
 
 protocol HomeViewModelOutput {
@@ -103,7 +103,7 @@ class HomeViewModel: HomeViewModelInterface {
 extension HomeViewModel {
     func viewDidLoad() {}
 
-    func showCountryList(with list: [Country]) {
-        coordinator?.showCountryList()
+    func showCountryList() {
+        coordinator?.showCountryList(with: [])
     }
 }

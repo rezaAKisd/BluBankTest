@@ -16,3 +16,5 @@ struct Country: Equatable, Identifiable, Hashable {
     let continent: String?
     let imageURL: String?
 }
+
+typealias CountryList = [Country]

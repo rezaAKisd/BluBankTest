@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 protocol HomeFlows: AnyObject {
-    func showCountryList()
+    func showCountryList(with selectedCountries: [Country])
 }
 
 final class HomeFlowCoordinator: Coordinator {
@@ -32,7 +32,7 @@ final class HomeFlowCoordinator: Coordinator {
 }
 
 extension HomeFlowCoordinator: HomeFlows {
-    func showCountryList() {
+    func showCountryList(with selectedCountries: [Country]){
         // Todo
     }
 }

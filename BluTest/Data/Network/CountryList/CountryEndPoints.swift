@@ -1,22 +1,22 @@
 //
-//  ImageEndPoint.swift
+//  CountryEndPoints.swift
 //  BluTest
 //
-//  Created by reza akbari on 1/5/23.
+//  Created by reza akbari on 1/6/23.
 //
 
 import Foundation
 import Moya
 
-enum ImageEndPoints {
-    case getMoviePoster(path: String)
+enum CountryEndPoints {
+    case getCountryList
 }
 
-extension ImageEndPoints: TargetType {
+extension CountryEndPoints: TargetType {
     public var baseURL: URL {
         switch self {
-        case .getMoviePoster:
-            return URL(string: AppConfiguration.imageBaseURL)!
+        case .getCountryList:
+            return URL(string: AppConfiguration.apiBaseURL)!
         }
     }
 
@@ -30,8 +30,8 @@ extension ImageEndPoints: TargetType {
 
     public var path: String {
         switch self {
-        case .getMoviePoster(let path):
-            return path.replacingOccurrences(of: "\(AppConfiguration.imageBaseURL)", with: "")
+        case .getCountryList:
+            return "v3.1/all"
         }
     }
 
@@ -41,7 +41,7 @@ extension ImageEndPoints: TargetType {
 
     public var task: Task {
         switch self {
-        case .getMoviePoster:
+        case .getCountryList:
             return .requestPlain
         }
     }
@@ -54,3 +54,4 @@ extension ImageEndPoints: TargetType {
         .none
     }
 }
+

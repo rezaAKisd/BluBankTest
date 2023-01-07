@@ -46,8 +46,11 @@ extension HomeFlowCoordinator: HomeFlows {
     private func makeCountryListCoordinator(with selectedCountries: CountryList) -> CountryListFlowCoordinator {
         let apiService = appDIContainer.apiDataTransferService
         let imgService = appDIContainer.imageDataTransferService
+        let imageCacheService = appDIContainer.imageCacheService
+        
         let countryListSceneDI = CountryListDIContainer(dependencies: .init(apiDataTransferService: apiService,
-                                                                            imageDataTransferService: imgService))
+                                                                            imageDataTransferService: imgService,
+                                                                            imageCacheService: imageCacheService))
 
         let countryListCoordinator = CountryListFlowCoordinator(navigationController: navigationController,
                                                                 appDIContainer: appDIContainer,

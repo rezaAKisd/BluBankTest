@@ -225,8 +225,10 @@ extension CountryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let state = viewModel.state.value
         switch state {
-        case .empty, .loading:
+        case .empty:
             return tableView.frame.height
+        case .loading:
+            return tableView.frame.height / 5
         case .countryList, .searchList:
             return tableView.estimatedRowHeight
         default: return 0.0

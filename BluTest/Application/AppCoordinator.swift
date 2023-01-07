@@ -20,8 +20,11 @@ class AppCoordinator: Coordinator {
     func start() {
         let apiService = appDIContainer.apiDataTransferService
         let imgService = appDIContainer.imageDataTransferService
+        let imageCacheService = appDIContainer.imageCacheService
+
         let homeSceneDI = HomeDIContainer(dependencies: .init(apiDataTransferService: apiService,
-                                                              imageDataTransferService: imgService))
+                                                              imageDataTransferService: imgService,
+                                                              imageCacheService: imageCacheService))
 
         let homeCoordinator = HomeFlowCoordinator(navigationController: navigationController,
                                                   appDIContainer: appDIContainer,

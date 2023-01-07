@@ -146,6 +146,7 @@ extension CountryListViewModel {
     }
 
     func searchCountry(for query: String) {
+        guard state.value != .loading else { return }
         searchQuery = query
         guard query != "" else {
             countryListDataSource = countryList

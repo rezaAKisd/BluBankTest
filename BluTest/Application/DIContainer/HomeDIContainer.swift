@@ -16,6 +16,7 @@ final class HomeDIContainer: HomeDependencies {
     struct Dependencies {
         let apiDataTransferService: DataTransferService
         let imageDataTransferService: DataTransferService
+        let imageCacheService: RealmCRUD
     }
 
     let dependencies: Dependencies
@@ -24,10 +25,15 @@ final class HomeDIContainer: HomeDependencies {
         self.dependencies = dependencies
     }
 
+    // MARK: - Persistent Storage
+
+    lazy var imageCacheStorage: ImageCacheStorageInterface = RealmImageCacheStorage(realmDB: dependencies.imageCacheService)
+
     // MARK: - Repository
 
     func imagesRepository() -> ImageRepositoryInterface {
-        return ImageRepository(dataTransferService: dependencies.apiDataTransferService)
+        return ImageRepository(dataTransferService: dependencies.apiDataTransferService,
+                               imageCacheStorage: imageCacheStorage)
     }
 
     // MARK: - Home

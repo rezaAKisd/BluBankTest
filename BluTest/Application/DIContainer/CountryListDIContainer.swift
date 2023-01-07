@@ -16,6 +16,7 @@ final class CountryListDIContainer: CountryListDependencies {
     struct Dependencies {
         let apiDataTransferService: DataTransferService
         let imageDataTransferService: DataTransferService
+        let imageCacheService: RealmCRUD
     }
 
     let dependencies: Dependencies
@@ -24,6 +25,10 @@ final class CountryListDIContainer: CountryListDependencies {
         self.dependencies = dependencies
     }
 
+    // MARK: - Persistent Storage
+
+    lazy var imageCacheStorage: ImageCacheStorageInterface = RealmImageCacheStorage(realmDB: dependencies.imageCacheService)
+    
     // MARK: - Use Cases
 
     func makeCountryListUseCase() -> CountryListUseCaseInterface {
@@ -37,7 +42,8 @@ final class CountryListDIContainer: CountryListDependencies {
     }
     
     func imagesRepository() -> ImageRepositoryInterface {
-        return ImageRepository(dataTransferService: dependencies.apiDataTransferService)
+        return ImageRepository(dataTransferService: dependencies.apiDataTransferService,
+                               imageCacheStorage: imageCacheStorage)
     }
     
     // MARK: - Country List

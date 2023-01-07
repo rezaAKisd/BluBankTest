@@ -26,6 +26,7 @@ protocol HomeViewModelOutput {
     var itemCount: Int { get }
     var isEmpty: Bool { get }
     var screenTitle: String { get }
+    var emptyListTitle: String { get }
 
     func applyDataSource(viewState: HomeViewModelStates)
 }
@@ -44,6 +45,7 @@ class HomeViewModel: HomeViewModelInterface {
     var itemCount: Int { return homeDatasource?.snapshot().numberOfItems ?? 0 }
     var isEmpty: Bool { return homeDatasource?.snapshot().numberOfItems ?? 0 < 1 }
     let screenTitle = NSLocalizedString("Selected Countries", comment: "")
+    var emptyListTitle: String = NSLocalizedString("Any Selected Country", comment: "")
 
     // MARK: - Init
 

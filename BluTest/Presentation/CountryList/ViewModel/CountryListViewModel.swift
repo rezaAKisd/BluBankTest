@@ -13,25 +13,34 @@ enum CountryListViewModelStates: Equatable {
     case empty
     case loading
     case error(String)
-    case countryList(CountryList)
+    case countryList
+    case searchList
+
+    var emptyList: [CountryListViewModelStates] {
+        return Array(repeatingExpression: CountryListViewModelStates.empty, count: 1)
+    }
+
+    var loadingItems: [CountryListViewModelStates] {
+        return Array(repeatingExpression: CountryListViewModelStates.loading, count: 12)
+    }
 }
 
 protocol CountryListInput {
     func viewDidLoad()
+    func selectItem(at indexPath: IndexPath)
     func searchCountry(for query: String)
-    func backToHome(with selected: CountryList)
+    func backToHome()
 }
 
 protocol CountryListOutput {
     var state: CurrentValueSubject<CountryListViewModelStates, Never> { get }
-    var countryListDatasource: CountryListDatasource? { get set }
-    var countryList: CountryList { get set }
+    var countryListDataSource: CountryList { get set }
     var itemCount: Int { get }
     var isEmpty: Bool { get }
     var screenTitle: String { get }
+    var rightButtonTitle: String { get }
     var searchBarPlaceholder: String { get }
-
-    func applyDataSource(viewState: CountryListViewModelStates)
+    var emptySearchTitle: String { get }
 }
 
 protocol CountryListViewModelInterface: CountryListInput, CountryListOutput {}
@@ -40,17 +49,21 @@ class CountryListViewModel: CountryListViewModelInterface {
     private var disposBag = Set<AnyCancellable>()
     private let countryListUseCase: CountryListUseCaseInterface
     private weak var coordinator: CountryListFlows?
-    private var currentQuery: String = ""
+    private var countryList: CountryList = []
+    private var searchQuery: String?
 
     // MARK: - OUTPUT
 
     var state = CurrentValueSubject<CountryListViewModelStates, Never>(.loading)
-    var countryListDatasource: CountryListDatasource?
-    var countryList: CountryList = []
-    var itemCount: Int { return countryListDatasource?.snapshot().numberOfItems ?? 0 }
-    var isEmpty: Bool { return countryListDatasource?.snapshot().numberOfItems ?? 0 < 1 }
+    var countryListDataSource: CountryList = []
+    var itemCount: Int { return countryListDataSource.count }
+    var isEmpty: Bool { return countryListDataSource.count < 1 }
     var screenTitle: String = NSLocalizedString("Country List", comment: "")
+    var rightButtonTitle: String = NSLocalizedString("Done", comment: "")
     var searchBarPlaceholder: String = NSLocalizedString("Search PlaceHolder", comment: "")
+    var emptySearchTitle: String {
+        return String.localizedStringWithFormat(NSLocalizedString("Empty Search Result", comment: ""), searchQuery ?? "")
+    }
 
     // MARK: - Init
 
@@ -59,75 +72,32 @@ class CountryListViewModel: CountryListViewModelInterface {
         self.coordinator = coordinator
     }
 
-    func applyDataSource(viewState: CountryListViewModelStates) {}
-
-    deinit {
-        coordinator?.backToHome()
-    }
-
     // MARK: - Private
 
-    private func createSnapshot(_ viewState: CountryListViewModelStates) -> CountryListSnapshot {
-        var snapshot: CountryListSnapshot!
-        if countryListDatasource?.snapshot().numberOfSections == 0 {
-            snapshot = CountryListSnapshot()
-            snapshot.appendSections([.countryList])
-        } else {
-            snapshot = countryListDatasource?.snapshot()
-        }
-
-        switch viewState {
-        case .countryList(let countries):
-            countryList.append(contentsOf: countries)
-            if countries.isEmpty {
-                clearSnapshot(&snapshot)
-                snapshot.appendItems(CountryListItem.emptyList, toSection: .countryList)
-            } else {
-                let currentItems = snapshot.itemIdentifiers(inSection: .countryList)
-                if currentItems.contains(where: { $0.isLoading || $0.isEmpty }) {
-                    snapshot.deleteItems(currentItems)
-                }
-                snapshot.appendItems(countries.map(CountryListItem.country), toSection: .countryList)
-            }
-        case .loading:
-            clearSnapshot(&snapshot)
-            snapshot.appendItems(CountryListItem.loadingItems, toSection: .countryList)
-        case .empty:
-            clearSnapshot(&snapshot)
-            snapshot.appendItems(CountryListItem.emptyList, toSection: .countryList)
-        default:
-            break
-        }
-
-        return snapshot
-    }
-
-    private func clearSnapshot(_ snapshot: inout CountryListSnapshot) {
-        snapshot.deleteSections([.countryList])
-        snapshot.appendSections([.countryList])
-    }
-
     private func loadCountryList() {
-        self.state.value = .loading
+        resetPages()
 
         countryListUseCase.execute()
             .sink { [weak self] state in
-                guard let self = self else { return }
+                guard let self else { return }
                 switch state {
                 case .finished:
-                    self.state.value = .none
+                    break
                 case .failure(let error):
                     self.state.value = .error(error.localizedDescription)
                 }
             } receiveValue: { [weak self] countryList in
-                guard let self = self else { return }
-                self.state.value = .countryList(countryList)
+                guard let self else { return }
+                self.countryList.removeAll()
+                self.countryList.append(contentsOf: countryList)
+                self.countryListDataSource = self.countryList
+                self.state.value = .countryList
 
             }.store(in: &disposBag)
     }
 
     private func resetPages() {
-        countryList.removeAll()
+        countryListDataSource.removeAll()
         state.value = .loading
     }
 }
@@ -139,7 +109,41 @@ extension CountryListViewModel {
         loadCountryList()
     }
 
-    func searchCountry(for query: String) {}
+    func selectItem(at indexPath: IndexPath) {
+        countryListDataSource[indexPath.row].isSelected.toggle()
+        switch state.value {
+        case .countryList:
+            countryList[indexPath.row].isSelected.toggle()
+        case .searchList:
+            let selectedItem = countryListDataSource[indexPath.row]
+            if let index = countryList.firstIndex(where: { $0.id == selectedItem.id }) {
+                countryList[index].isSelected.toggle()
+            }
+        default: break
+        }
+    }
 
-    func backToHome(with selected: CountryList) {}
+    func searchCountry(for query: String) {
+        searchQuery = query
+        guard query != "" else {
+            countryListDataSource = countryList
+            state.value = .countryList
+            return
+        }
+        let searchResult = countryList.filter {
+            ($0.name ?? "").localizedCaseInsensitiveContains(query) ||
+                ($0.capital ?? "").localizedCaseInsensitiveContains(query) ||
+                ($0.region ?? "").localizedCaseInsensitiveContains(query)
+        }
+        if searchResult.isEmpty {
+            state.value = .empty
+        } else {
+            countryListDataSource = searchResult
+            state.value = .searchList
+        }
+    }
+
+    func backToHome() {
+        coordinator?.backToHome(with: countryList.filter { $0.isSelected == true })
+    }
 }

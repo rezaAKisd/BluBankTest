@@ -15,6 +15,7 @@ struct Country: Equatable, Identifiable, Hashable {
     let timezones: String?
     let continent: String?
     let imageURL: String?
+    var isSelected: Bool
 }
 
 typealias CountryList = [Country]

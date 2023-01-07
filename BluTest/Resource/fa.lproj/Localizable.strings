@@ -9,3 +9,6 @@
 "Any Selected Country" = "شما هیچ کشور انتخاب شده ای ندارید.";
 "Country List" = "لیست کشورها";
 "Selected Countries" = "کشور های انتخاب شده";
+"Done" = "اتمام";
+"Search PlaceHolder" = "نام کشور، پایتخت یا قاره را جستوجو کنید";
+"Empty Search Result" = "کشوری با این %@ جست و جو پیدا نشد.";

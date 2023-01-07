@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 protocol CountryListFlows: AnyObject {
-    func backToHome()
+    func backToHome(with countries: CountryList)
 }
 
 final class CountryListFlowCoordinator: Coordinator {
@@ -41,7 +41,7 @@ final class CountryListFlowCoordinator: Coordinator {
 }
 
 extension CountryListFlowCoordinator: CountryListFlows {
-    func backToHome() {
+    func backToHome(with countries: CountryList) {
         backDelegate?.navigateBackToFirstPage(coordinator: self)
     }
 }

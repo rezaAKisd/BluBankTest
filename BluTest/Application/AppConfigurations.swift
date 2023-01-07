@@ -16,7 +16,7 @@ final class AppConfiguration {
     }()
 
     static var imageBaseURL: String = {
-        guard let apiBaseURL = infoForKey("ApiBaseURL") else {
+        guard let apiBaseURL = infoForKey("ImageBaseURL") else {
             fatalError("ApiBaseURL must not be empty in plist")
         }
         return apiBaseURL

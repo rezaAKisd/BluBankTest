@@ -15,6 +15,7 @@ struct CountryItemViewModel: Equatable, Hashable {
     let timezones: String?
     let continent: String?
     let imageURL: String?
+    let isSelected: Bool
 }
 
 extension CountryItemViewModel {
@@ -26,6 +27,6 @@ extension CountryItemViewModel {
         self.continent = country.continent ?? ""
         self.timezones = country.timezones ?? ""
         self.imageURL = country.imageURL
+        self.isSelected = country.isSelected
     }
 }
-

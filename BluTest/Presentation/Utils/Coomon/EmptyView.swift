@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct EmptyView: View {
-    var emptyTitle: String {
-        return NSLocalizedString("Any Selected Country", comment: "")
+    var emptyTitle: String
+    
+    init(emptyTitle: String){
+        self.emptyTitle = emptyTitle
     }
 
     var body: some View {
@@ -26,6 +28,6 @@ struct EmptyView: View {
 
 struct EmptyView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        EmptyView(emptyTitle: "Empty List")
     }
 }

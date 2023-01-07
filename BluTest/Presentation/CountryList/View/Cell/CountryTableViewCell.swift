@@ -15,15 +15,13 @@ class CountryTableViewCell: UITableViewCell {
     private var shimmerLayer: CALayer?
     private var viewModel: CountryItemViewModel!
     private var posterImagesRepository: ImageRepositoryInterface?
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var capitalLabel: UILabel!
-    @IBOutlet weak var continentLabel: UILabel!
-    @IBOutlet weak var timezoneLabel: UILabel!
-    @IBOutlet weak var countryImageView: UIImageView!
-    
-    
-    
+
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var capitalLabel: UILabel!
+    @IBOutlet var continentLabel: UILabel!
+    @IBOutlet var timezoneLabel: UILabel!
+    @IBOutlet var countryImageView: UIImageView!
+
     func fill(with viewModel: CountryItemViewModel, imageRepository: ImageRepositoryInterface?) {
         self.viewModel = viewModel
         self.posterImagesRepository = imageRepository
@@ -33,6 +31,8 @@ class CountryTableViewCell: UITableViewCell {
         continentLabel.text = viewModel.continent
         timezoneLabel.text = viewModel.timezones
         updateImage()
+        
+        accessoryType = viewModel.isSelected == true ? .checkmark : .none
     }
 
     private func updateImage() {
@@ -49,15 +49,19 @@ class CountryTableViewCell: UITableViewCell {
     }
 
     func showLoading() {
-        let light = UIColor(white: 0, alpha: 0.1).cgColor
+        let left = UIColor(white: 0.25, alpha: 0.1).cgColor
+        let center = UIColor(white: 0.55, alpha: 0.3).cgColor
+        let right = UIColor(white: 0.85, alpha: 0.5).cgColor
 
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.clear.cgColor, light, UIColor.clear.cgColor]
+        gradient.colors = [left, center, right]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.525)
         gradient.locations = [0.4, 0.5, 0.6]
 
-        gradient.frame = CGRect(x: -contentView.bounds.width, y: 0, width: contentView.bounds.width * 3, height: contentView.bounds.height)
+        gradient.frame = CGRect(x: -contentView.bounds.width,
+                                y: 0, width: contentView.bounds.width * 3,
+                                height: contentView.bounds.height)
 
         let animation = CABasicAnimation(keyPath: "locations")
         animation.fromValue = [0.0, 0.1, 0.2]

@@ -43,6 +43,7 @@ extension CountryResponseDTO {
                      region: region,
                      timezones: timezones?.first,
                      continent: continents?.first,
-                     imageURL: flags?.png)
+                     imageURL: flags?.png,
+                     isSelected: false)
     }
 }

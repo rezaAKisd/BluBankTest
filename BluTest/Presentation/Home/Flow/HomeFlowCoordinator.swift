@@ -59,6 +59,7 @@ extension HomeFlowCoordinator: HomeFlows {
 
 extension HomeFlowCoordinator: CoordinateBackDelegate {
     func navigateBackToFirstPage(coordinator: Coordinator) {
+        self.navigationController.popViewController(animated: true)
         self.removeChild(for: coordinator)
     }
 }

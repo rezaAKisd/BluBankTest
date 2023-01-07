@@ -6,6 +6,9 @@
   
 */
 
-"Any Selected Country" = "you don't have any selected country";
+"Any Selected Country" = "You don't have any selected country";
 "Country List" = "Country List";
 "Selected Countries" = "Selected Countries";
+"Done" = "Done";
+"Search PlaceHolder" = "Search country name, regin or capital";
+"Empty Search Result" = "Can't find country for %@";

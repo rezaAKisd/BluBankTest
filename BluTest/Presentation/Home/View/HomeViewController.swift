@@ -111,7 +111,7 @@ class HomeViewController: UIViewController {
         switch homeItem {
         case .empty:
             let cell: HostingTableViewCell<EmptyView> = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
-            cell.host(EmptyView(), parent: self)
+            cell.host(EmptyView(emptyTitle: viewModel.emptyListTitle), parent: self)
             return cell
         case .country(let country):
             let cell: CountryTableViewCell = tableView.dequeueCellAtIndexPath(indexPath: indexPath)

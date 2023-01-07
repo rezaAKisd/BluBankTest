@@ -11,6 +11,7 @@ import UIKit
 class CountryListViewController: UIViewController, Alertable {
     lazy var tableView: UITableView = { [unowned self] in UITableView() }()
     lazy var searchBar: UISearchBar = { [unowned self] in UISearchBar() }()
+    lazy var refreshControl: UIRefreshControl = { [unowned self] in UIRefreshControl() }()
     
     public var disposBag = Set<AnyCancellable>()
     private var viewModel: CountryListViewModelInterface
@@ -74,17 +75,36 @@ class CountryListViewController: UIViewController, Alertable {
     }
     
     private func setUpTableView() {
-        tableView.register(UINib(nibName: "CountryTableViewCell",
-                                 bundle: nil),
-                           forCellReuseIdentifier: CountryTableViewCell.reuseId)
-        tableView.register(HostingTableViewCell<EmptyView>.self,
-                           forCellReuseIdentifier: HostingTableViewCell<EmptyView>.reuseId)
+        func registerTableViewCells() {
+            tableView.register(UINib(nibName: "CountryTableViewCell",
+                                     bundle: nil),
+                               forCellReuseIdentifier: CountryTableViewCell.reuseId)
+            tableView.register(HostingTableViewCell<EmptyView>.self,
+                               forCellReuseIdentifier: HostingTableViewCell<EmptyView>.reuseId)
+        }
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.keyboardDismissMode = .onDrag
-        tableView.separatorStyle = .singleLine
-        tableView.allowsMultipleSelectionDuringEditing = true
+        func setupTableViewProperties() {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.keyboardDismissMode = .onDrag
+            tableView.separatorStyle = .singleLine
+            tableView.allowsMultipleSelectionDuringEditing = true
+        }
+        
+        func setupPullToRefresh() {
+            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+            tableView.addSubview(refreshControl)
+        }
+        
+        registerTableViewCells()
+        setupTableViewProperties()
+        setupPullToRefresh()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        view.endEditing(true)
+        searchBar.searchTextField.text = nil
+        viewModel.refreshCountryList()
     }
     
     private func addSubviews() {
@@ -131,6 +151,7 @@ class CountryListViewController: UIViewController, Alertable {
         switch state {
         case .loading, .empty, .countryList, .searchList:
             DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
                 self.tableView.reloadData()
             }
         case .error(let errorMessage):

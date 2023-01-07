@@ -27,6 +27,7 @@ enum CountryListViewModelStates: Equatable {
 
 protocol CountryListInput {
     func viewDidLoad()
+    func refreshCountryList()
     func selectItem(at indexPath: IndexPath)
     func searchCountry(for query: String)
     func backToHome()
@@ -75,6 +76,12 @@ class CountryListViewModel: CountryListViewModelInterface {
     // MARK: - Private
 
     private func loadCountryList() {
+        func resetPages() {
+            searchQuery = nil
+            countryList.removeAll()
+            countryListDataSource.removeAll()
+            state.value = .loading
+        }
         resetPages()
 
         countryListUseCase.execute()
@@ -88,17 +95,11 @@ class CountryListViewModel: CountryListViewModelInterface {
                 }
             } receiveValue: { [weak self] countryList in
                 guard let self else { return }
-                self.countryList.removeAll()
                 self.countryList.append(contentsOf: countryList)
                 self.countryListDataSource = self.countryList
                 self.state.value = .countryList
 
             }.store(in: &disposBag)
-    }
-
-    private func resetPages() {
-        countryListDataSource.removeAll()
-        state.value = .loading
     }
 }
 
@@ -106,6 +107,10 @@ class CountryListViewModel: CountryListViewModelInterface {
 
 extension CountryListViewModel {
     func viewDidLoad() {
+        loadCountryList()
+    }
+    
+    func refreshCountryList() {
         loadCountryList()
     }
 

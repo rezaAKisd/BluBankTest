@@ -51,6 +51,7 @@ class CountryListViewModel: CountryListViewModelInterface {
     private let countryListUseCase: CountryListUseCaseInterface
     private weak var coordinator: CountryListFlows?
     private var countryList: CountryList = []
+    private var selectedCountryList: CountryList = []
     private var searchQuery: String?
 
     // MARK: - OUTPUT
@@ -63,14 +64,18 @@ class CountryListViewModel: CountryListViewModelInterface {
     var rightButtonTitle: String = NSLocalizedString("Done", comment: "")
     var searchBarPlaceholder: String = NSLocalizedString("Search PlaceHolder", comment: "")
     var emptySearchTitle: String {
-        return String.localizedStringWithFormat(NSLocalizedString("Empty Search Result", comment: ""), searchQuery ?? "")
+        return String.localizedStringWithFormat(NSLocalizedString("Empty Search Result",
+                                                                  comment: ""), searchQuery ?? "")
     }
 
     // MARK: - Init
 
-    init(countryListUseCase: CountryListUseCaseInterface, coordinator: CountryListFlows) {
+    init(countryListUseCase: CountryListUseCaseInterface,
+         coordinator: CountryListFlows,
+         selectedCountries: CountryList) {
         self.countryListUseCase = countryListUseCase
         self.coordinator = coordinator
+        self.selectedCountryList = selectedCountries
     }
 
     // MARK: - Private
@@ -96,10 +101,21 @@ class CountryListViewModel: CountryListViewModelInterface {
             } receiveValue: { [weak self] countryList in
                 guard let self else { return }
                 self.countryList.append(contentsOf: countryList)
+                self.mergeSelectedCountriesWithResponse(countryList: &self.countryList)
                 self.countryListDataSource = self.countryList
                 self.state.value = .countryList
 
             }.store(in: &disposBag)
+    }
+    
+    private func mergeSelectedCountriesWithResponse(countryList: inout CountryList) {
+        var index = 0
+        for country in countryList {
+            for selected in selectedCountryList where country.name == selected.name {
+                countryList[index].isSelected = true
+            }
+            index += 1
+        }
     }
 }
 
@@ -111,6 +127,7 @@ extension CountryListViewModel {
     }
     
     func refreshCountryList() {
+        selectedCountryList.removeAll()
         loadCountryList()
     }
 

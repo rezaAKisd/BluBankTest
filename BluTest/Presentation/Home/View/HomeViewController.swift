@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Country List", comment: ""),
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.rightButtonTitle,
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(goToCountryList))
@@ -68,6 +68,7 @@ class HomeViewController: UIViewController {
                            forCellReuseIdentifier: HostingTableViewCell<EmptyView>.reuseId)
         
         tableView.delegate = self
+        tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
@@ -95,52 +96,66 @@ class HomeViewController: UIViewController {
     
     private func setUpBindings() {
         func bindViewModelToView() {
-            viewModel.homeDatasource = HomeDatasource(tableView: tableView) { tableView, indexPath, styleItem -> UITableViewCell? in
-                self.cell(collectionView: tableView, indexPath: indexPath, homeItem: styleItem)
-            }
-            
             viewModel.state
                 .sink(receiveValue: { [weak self] in self?.updateViewState($0) }).store(in: &disposBag)
         }
         
         bindViewModelToView()
-        viewModel.applyDataSource(viewState: .empty)
     }
     
-    private func cell(collectionView: UITableView, indexPath: IndexPath, homeItem: HomeItem) -> UITableViewCell {
-        switch homeItem {
-        case .empty:
-            let cell: HostingTableViewCell<EmptyView> = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
-            cell.host(EmptyView(emptyTitle: viewModel.emptyListTitle), parent: self)
-            return cell
-        case .country(let country):
-            let cell: CountryTableViewCell = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
-            cell.fill(with: .init(country: country),
-                      imageRepository: imageRepository)
-            
-            return cell
-        }
-    }
-
     private func updateViewState(_ state: HomeViewModelStates) {
         switch state {
-        case .selectedCountryList(let countries):
-            viewModel.applyDataSource(viewState: .selectedCountryList(countries))
-            viewModel.state.value = .none
+        case .selectedCountryList, .empty:
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         default:
             break
         }
     }
 }
 
+extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch viewModel.state.value {
+        case .empty:
+            return 1
+        case .selectedCountryList:
+            return viewModel.itemCount
+        default: return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch viewModel.state.value {
+        case .empty:
+            let cell: HostingTableViewCell<EmptyView> = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
+            cell.host(EmptyView(emptyTitle: viewModel.emptyListTitle), parent: self)
+            return cell
+        case .selectedCountryList:
+            let cell: CountryTableViewCell = tableView.dequeueCellAtIndexPath(indexPath: indexPath)
+            cell.fill(with: .init(country: viewModel.selectedCountryList[indexPath.row]),
+                      imageRepository: imageRepository)
+            
+            return cell
+        default: return UITableViewCell()
+        }
+    }
+}
+
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell = viewModel.homeDatasource?.itemIdentifier(for: indexPath)
-        switch cell {
+        switch viewModel.state.value {
+        case .selectedCountryList:
+            return tableView.estimatedRowHeight
         case .empty:
             return tableView.frame.height
         default:
-            return tableView.estimatedRowHeight
+            return 0.0
         }
     }
 }

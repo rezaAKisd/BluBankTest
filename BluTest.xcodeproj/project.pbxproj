@@ -25,7 +25,6 @@
 		F52A83F4296708660016F50E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83F3296708660016F50E /* HomeViewController.swift */; };
 		F52A83F6296709CA0016F50E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83F5296709CA0016F50E /* HomeViewModel.swift */; };
 		F52A83FB296723410016F50E /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83FA296723410016F50E /* Country.swift */; };
-		F52A83FD296724D10016F50E /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83FC296724D10016F50E /* HomeDatasource.swift */; };
 		F52A84012967259F0016F50E /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A84002967259F0016F50E /* Array+Ext.swift */; };
 		F52A840729672F1F0016F50E /* ImageRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */; };
 		F52A840C29672FFE0016F50E /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A840B29672FFE0016F50E /* ImageRepository.swift */; };
@@ -71,7 +70,6 @@
 		F52A83F3296708660016F50E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F52A83F5296709CA0016F50E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F52A83FA296723410016F50E /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		F52A83FC296724D10016F50E /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
 		F52A84002967259F0016F50E /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		F52A840629672F1F0016F50E /* ImageRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryInterface.swift; sourceTree = "<group>"; };
 		F52A840B29672FFE0016F50E /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				F52A83F3296708660016F50E /* HomeViewController.swift */,
-				F52A83FC296724D10016F50E /* HomeDatasource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -641,7 +638,6 @@
 				F5F078AB296825EB0055A742 /* CountryListViewController.swift in Sources */,
 				F52A83FB296723410016F50E /* Country.swift in Sources */,
 				F5F078A7296825360055A742 /* CountryListDIContainer.swift in Sources */,
-				F52A83FD296724D10016F50E /* HomeDatasource.swift in Sources */,
 				F52A840C29672FFE0016F50E /* ImageRepository.swift in Sources */,
 				F52A83F4296708660016F50E /* HomeViewController.swift in Sources */,
 				F52A83E92966E52B0016F50E /* AppDIContainer.swift in Sources */,

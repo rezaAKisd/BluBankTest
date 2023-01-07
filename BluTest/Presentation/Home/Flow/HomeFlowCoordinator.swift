@@ -16,8 +16,8 @@ final class HomeFlowCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     private let appDIContainer: AppDIContainer
-
     private let dependencies: HomeDependencies
+    private var homeViewModel: HomeViewModelInterface!
 
     init(navigationController: UINavigationController,
          appDIContainer: AppDIContainer,
@@ -28,7 +28,8 @@ final class HomeFlowCoordinator: Coordinator {
     }
 
     func start() {
-        let homeVC = HomeViewController(viewModel: dependencies.homeViewModel(coordinator: self),
+        homeViewModel = dependencies.homeViewModel(coordinator: self)
+        let homeVC = HomeViewController(viewModel: homeViewModel,
                                         imagesRepository: dependencies.imagesRepository())
         navigationController.pushViewController(homeVC, animated: false)
     }
@@ -57,8 +58,15 @@ extension HomeFlowCoordinator: HomeFlows {
     }
 }
 
-extension HomeFlowCoordinator: CoordinateBackDelegate {
-    func navigateBackToFirstPage(coordinator: Coordinator) {
+extension HomeFlowCoordinator: BackToHomeFlowCoordinate {
+    func navigateBackToHome(coordinator: Coordinator, countryList: CountryList) {
+        if !countryList.isEmpty {
+            homeViewModel.selectedCountryList = countryList
+            homeViewModel.state.value = .selectedCountryList
+        } else {
+            homeViewModel.selectedCountryList.removeAll()
+            homeViewModel.state.value = .empty
+        }
         self.navigationController.popViewController(animated: true)
         self.removeChild(for: coordinator)
     }

@@ -27,7 +27,3 @@ extension Coordinator {
         childCoordinators.remove(at: removeIndex)
     }
 }
-
-protocol CoordinateBackDelegate: AnyObject {
-    func navigateBackToFirstPage(coordinator: Coordinator)
-}

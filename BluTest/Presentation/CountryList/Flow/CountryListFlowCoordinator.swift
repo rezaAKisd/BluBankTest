@@ -8,6 +8,10 @@
 import Combine
 import UIKit
 
+protocol BackToHomeFlowCoordinate: AnyObject {
+    func navigateBackToHome(coordinator: Coordinator, countryList: CountryList)
+}
+
 protocol CountryListFlows: AnyObject {
     func backToHome(with countries: CountryList)
 }
@@ -15,11 +19,11 @@ protocol CountryListFlows: AnyObject {
 final class CountryListFlowCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    weak var backDelegate: CoordinateBackDelegate?
+    weak var backDelegate: BackToHomeFlowCoordinate?
     
     private let appDIContainer: AppDIContainer
     private let dependencies: CountryListDependencies
-    private let selectedCountryList: CountryList
+    private let selectedCountries: CountryList
 
     init(navigationController: UINavigationController,
          appDIContainer: AppDIContainer,
@@ -28,11 +32,11 @@ final class CountryListFlowCoordinator: Coordinator {
         self.navigationController = navigationController
         self.appDIContainer = appDIContainer
         self.dependencies = dependencies
-        self.selectedCountryList = selectedCountryList
+        self.selectedCountries = selectedCountryList
     }
 
     func start() {
-        let viewModel = dependencies.countryListViewModel(coordinator: self)
+        let viewModel = dependencies.countryListViewModel(coordinator: self, selectedCountries: selectedCountries)
         let countryListVC = CountryListViewController(viewModel: viewModel,
                                                       imagesRepository: dependencies.imagesRepository())
         
@@ -42,6 +46,6 @@ final class CountryListFlowCoordinator: Coordinator {
 
 extension CountryListFlowCoordinator: CountryListFlows {
     func backToHome(with countries: CountryList) {
-        backDelegate?.navigateBackToFirstPage(coordinator: self)
+        backDelegate?.navigateBackToHome(coordinator: self, countryList: countries)
     }
 }

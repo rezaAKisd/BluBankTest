@@ -6,11 +6,13 @@ Xcode +14
 
 Download Dependencies with 'SPM' and install SwiftLitn
 
-## Project dependencie
+## Project Detail
 
-Network: Moya/Combine
+CleanArchitecture + MVVM-C
 
-DataBase: RealmSwift
+Network layer: Moya/Combine
+
+DataBase layer: RealmSwift
 
 
 

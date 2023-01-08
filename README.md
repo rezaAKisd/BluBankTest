@@ -10,7 +10,7 @@ Download Dependencies with 'SPM' and install SwiftLitn
 
 CleanArchitecture + MVVM-C
 
-Network layer: Moya/Combine
+Network layer: URLSession/Combine
 
 DataBase layer: RealmSwift
 

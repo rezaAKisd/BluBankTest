@@ -13,15 +13,9 @@
 		F505A8662969EB100007CC3C /* ImageCacheStorageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505A8652969EB100007CC3C /* ImageCacheStorageInterface.swift */; };
 		F505A8692969EB460007CC3C /* RealmImageCacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505A8682969EB460007CC3C /* RealmImageCacheStorage.swift */; };
 		F505A86B2969EB760007CC3C /* RealmImageCacheEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F505A86A2969EB760007CC3C /* RealmImageCacheEntity.swift */; };
-		F52A83CB2966DF7A0016F50E /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F52A83CA2966DF7A0016F50E /* CombineMoya */; };
-		F52A83CD2966DF7A0016F50E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F52A83CC2966DF7A0016F50E /* Moya */; };
-		F52A83D22966DFF90016F50E /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D12966DFF90016F50E /* URL+Ext.swift */; };
-		F52A83D42966E01C0016F50E /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D32966E01C0016F50E /* Encodable+Ext.swift */; };
-		F52A83D62966E02F0016F50E /* AnyPublisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D52966E02F0016F50E /* AnyPublisher+Ext.swift */; };
-		F52A83D82966E0440016F50E /* MoyaProvider+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D72966E0440016F50E /* MoyaProvider+Ext.swift */; };
+		F52A83D62966E02F0016F50E /* DataTaskPublisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D52966E02F0016F50E /* DataTaskPublisher+Ext.swift */; };
 		F52A83DA2966E05D0016F50E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83D92966E05D0016F50E /* NetworkError.swift */; };
 		F52A83DC2966E0730016F50E /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83DB2966E0730016F50E /* NetworkConfig.swift */; };
-		F52A83DE2966E0850016F50E /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83DD2966E0850016F50E /* NetworkProvider.swift */; };
 		F52A83E22966E4A00016F50E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83E12966E4A00016F50E /* Coordinator.swift */; };
 		F52A83E42966E4D20016F50E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83E32966E4D20016F50E /* AppCoordinator.swift */; };
 		F52A83E62966E4E80016F50E /* AppConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A83E52966E4E80016F50E /* AppConfigurations.swift */; };
@@ -57,6 +51,15 @@
 		F5F078B129685E340055A742 /* CountryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078B029685E340055A742 /* CountryListUseCase.swift */; };
 		F5F078B32968647F0055A742 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078B22968647F0055A742 /* UITextField+Ext.swift */; };
 		F5F078B6296867680055A742 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F078B5296867680055A742 /* Alertable.swift */; };
+		FAF9D076296ADB800098126C /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D075296ADB800098126C /* NetworkProvider.swift */; };
+		FAF9D078296ADB970098126C /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D077296ADB970098126C /* EndPointType.swift */; };
+		FAF9D07A296ADBAD0098126C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D079296ADBAD0098126C /* Router.swift */; };
+		FAF9D07C296ADBBA0098126C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D07B296ADBBA0098126C /* HTTPMethod.swift */; };
+		FAF9D07E296ADBC90098126C /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D07D296ADBC90098126C /* HTTPTask.swift */; };
+		FAF9D080296ADBD70098126C /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D07F296ADBD70098126C /* NetworkLogger.swift */; };
+		FAF9D082296ADBE60098126C /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D081296ADBE60098126C /* ParameterEncoding.swift */; };
+		FAF9D084296ADBF50098126C /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D083296ADBF50098126C /* URLParameterEncoding.swift */; };
+		FAF9D086296ADC030098126C /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9D085296ADC030098126C /* JSONParameterEncoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,13 +67,9 @@
 		F505A8652969EB100007CC3C /* ImageCacheStorageInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheStorageInterface.swift; sourceTree = "<group>"; };
 		F505A8682969EB460007CC3C /* RealmImageCacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmImageCacheStorage.swift; sourceTree = "<group>"; };
 		F505A86A2969EB760007CC3C /* RealmImageCacheEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmImageCacheEntity.swift; sourceTree = "<group>"; };
-		F52A83D12966DFF90016F50E /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
-		F52A83D32966E01C0016F50E /* Encodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
-		F52A83D52966E02F0016F50E /* AnyPublisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Ext.swift"; sourceTree = "<group>"; };
-		F52A83D72966E0440016F50E /* MoyaProvider+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Ext.swift"; sourceTree = "<group>"; };
+		F52A83D52966E02F0016F50E /* DataTaskPublisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTaskPublisher+Ext.swift"; sourceTree = "<group>"; };
 		F52A83D92966E05D0016F50E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F52A83DB2966E0730016F50E /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
-		F52A83DD2966E0850016F50E /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		F52A83E12966E4A00016F50E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F52A83E32966E4D20016F50E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F52A83E52966E4E80016F50E /* AppConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurations.swift; sourceTree = "<group>"; };
@@ -112,6 +111,15 @@
 		F5F078B029685E340055A742 /* CountryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListUseCase.swift; sourceTree = "<group>"; };
 		F5F078B22968647F0055A742 /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		F5F078B5296867680055A742 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		FAF9D075296ADB800098126C /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		FAF9D077296ADB970098126C /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		FAF9D079296ADBAD0098126C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		FAF9D07B296ADBBA0098126C /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		FAF9D07D296ADBC90098126C /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		FAF9D07F296ADBD70098126C /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		FAF9D081296ADBE60098126C /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		FAF9D083296ADBF50098126C /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
+		FAF9D085296ADC030098126C /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +129,6 @@
 			files = (
 				63C3EEF12969B19500E1407B /* RealmSwift in Frameworks */,
 				63C3EEEF2969B19500E1407B /* Realm in Frameworks */,
-				F52A83CD2966DF7A0016F50E /* Moya in Frameworks */,
-				F52A83CB2966DF7A0016F50E /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,9 +205,9 @@
 		F52A83CF2966DFDA0016F50E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				F52A83DD2966E0850016F50E /* NetworkProvider.swift */,
-				F52A83DB2966E0730016F50E /* NetworkConfig.swift */,
-				F52A83D92966E05D0016F50E /* NetworkError.swift */,
+				FAF9D072296ADB360098126C /* Manager */,
+				FAF9D073296ADB3C0098126C /* Service */,
+				FAF9D074296ADB420098126C /* Encoding */,
 				F52A83D02966DFED0016F50E /* Extension */,
 			);
 			path = Network;
@@ -210,10 +216,7 @@
 		F52A83D02966DFED0016F50E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F52A83D52966E02F0016F50E /* AnyPublisher+Ext.swift */,
-				F52A83D32966E01C0016F50E /* Encodable+Ext.swift */,
-				F52A83D72966E0440016F50E /* MoyaProvider+Ext.swift */,
-				F52A83D12966DFF90016F50E /* URL+Ext.swift */,
+				F52A83D52966E02F0016F50E /* DataTaskPublisher+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -577,6 +580,38 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		FAF9D072296ADB360098126C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FAF9D075296ADB800098126C /* NetworkProvider.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		FAF9D073296ADB3C0098126C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FAF9D077296ADB970098126C /* EndPointType.swift */,
+				FAF9D07B296ADBBA0098126C /* HTTPMethod.swift */,
+				FAF9D07D296ADBC90098126C /* HTTPTask.swift */,
+				F52A83DB2966E0730016F50E /* NetworkConfig.swift */,
+				F52A83D92966E05D0016F50E /* NetworkError.swift */,
+				FAF9D07F296ADBD70098126C /* NetworkLogger.swift */,
+				FAF9D079296ADBAD0098126C /* Router.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FAF9D074296ADB420098126C /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				FAF9D085296ADC030098126C /* JSONParameterEncoder.swift */,
+				FAF9D081296ADBE60098126C /* ParameterEncoding.swift */,
+				FAF9D083296ADBF50098126C /* URLParameterEncoding.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -595,8 +630,6 @@
 			);
 			name = BluTest;
 			packageProductDependencies = (
-				F52A83CA2966DF7A0016F50E /* CombineMoya */,
-				F52A83CC2966DF7A0016F50E /* Moya */,
 				63C3EEEE2969B19500E1407B /* Realm */,
 				63C3EEF02969B19500E1407B /* RealmSwift */,
 			);
@@ -630,7 +663,6 @@
 			);
 			mainGroup = F5EC43692966BDBC00A8F498;
 			packageReferences = (
-				F52A83C92966DF7A0016F50E /* XCRemoteSwiftPackageReference "Moya" */,
 				63C3EEED2969B19500E1407B /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = F5EC43732966BDBC00A8F498 /* Products */;
@@ -686,29 +718,34 @@
 				F5F0789D296815B90055A742 /* CountryListRepositoryInterface.swift in Sources */,
 				F52A83F6296709CA0016F50E /* HomeViewModel.swift in Sources */,
 				F52A84012967259F0016F50E /* Array+Ext.swift in Sources */,
+				FAF9D084296ADBF50098126C /* URLParameterEncoding.swift in Sources */,
 				F52A83E42966E4D20016F50E /* AppCoordinator.swift in Sources */,
 				F52A841D2967521C0016F50E /* UITableView+Ext.swift in Sources */,
 				F5F07895296810020055A742 /* CountryEndPoints.swift in Sources */,
-				F52A83D62966E02F0016F50E /* AnyPublisher+Ext.swift in Sources */,
+				F52A83D62966E02F0016F50E /* DataTaskPublisher+Ext.swift in Sources */,
 				F5F078982968111C0055A742 /* CountryListResponseDTO+Mapping.swift in Sources */,
 				F505A8692969EB460007CC3C /* RealmImageCacheStorage.swift in Sources */,
 				F52A841729674FB60016F50E /* ClassIdentifiable+Ext.swift in Sources */,
 				F52A841529674B120016F50E /* EmptyView.swift in Sources */,
 				F52A83DA2966E05D0016F50E /* NetworkError.swift in Sources */,
+				FAF9D086296ADC030098126C /* JSONParameterEncoder.swift in Sources */,
 				F52A83E22966E4A00016F50E /* Coordinator.swift in Sources */,
+				FAF9D07E296ADBC90098126C /* HTTPTask.swift in Sources */,
 				F52A841329674AEF0016F50E /* HostingTableViewCell.swift in Sources */,
 				F5F078B6296867680055A742 /* Alertable.swift in Sources */,
+				FAF9D078296ADB970098126C /* EndPointType.swift in Sources */,
 				F5F078A9296825CF0055A742 /* CountryListViewModel.swift in Sources */,
-				F52A83DE2966E0850016F50E /* NetworkProvider.swift in Sources */,
 				F52A83F22966FBF10016F50E /* HomeDIContainer.swift in Sources */,
+				FAF9D07C296ADBBA0098126C /* HTTPMethod.swift in Sources */,
 				F505A86B2969EB760007CC3C /* RealmImageCacheEntity.swift in Sources */,
-				F52A83D82966E0440016F50E /* MoyaProvider+Ext.swift in Sources */,
+				FAF9D080296ADBD70098126C /* NetworkLogger.swift in Sources */,
+				FAF9D07A296ADBAD0098126C /* Router.swift in Sources */,
 				F52A84102967331E0016F50E /* ImageEndPoints.swift in Sources */,
 				F5F078B32968647F0055A742 /* UITextField+Ext.swift in Sources */,
+				FAF9D082296ADBE60098126C /* ParameterEncoding.swift in Sources */,
 				F52A841F296758A90016F50E /* CountryItemViewModel.swift in Sources */,
 				F5F078B129685E340055A742 /* CountryListUseCase.swift in Sources */,
 				F52A83F02966FB1D0016F50E /* HomeFlowCoordinator.swift in Sources */,
-				F52A83D22966DFF90016F50E /* URL+Ext.swift in Sources */,
 				F5EC43762966BDBC00A8F498 /* AppDelegate.swift in Sources */,
 				F5F0789B296815830055A742 /* CountryListRepository.swift in Sources */,
 				F52A840729672F1F0016F50E /* ImageRepositoryInterface.swift in Sources */,
@@ -723,7 +760,7 @@
 				F52A83DC2966E0730016F50E /* NetworkConfig.swift in Sources */,
 				F52A83E62966E4E80016F50E /* AppConfigurations.swift in Sources */,
 				F52A841A2967500C0016F50E /* CountryTableViewCell.swift in Sources */,
-				F52A83D42966E01C0016F50E /* Encodable+Ext.swift in Sources */,
+				FAF9D076296ADB800098126C /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,14 +998,6 @@
 				version = 10.33.0;
 			};
 		};
-		F52A83C92966DF7A0016F50E /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				kind = exactVersion;
-				version = 15.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -981,16 +1010,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63C3EEED2969B19500E1407B /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
-		};
-		F52A83CA2966DF7A0016F50E /* CombineMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F52A83C92966DF7A0016F50E /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = CombineMoya;
-		};
-		F52A83CC2966DF7A0016F50E /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F52A83C92966DF7A0016F50E /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct EmptyView: View {
     var emptyTitle: String
-    
-    init(emptyTitle: String){
+
+    init(emptyTitle: String) {
         self.emptyTitle = emptyTitle
     }
 

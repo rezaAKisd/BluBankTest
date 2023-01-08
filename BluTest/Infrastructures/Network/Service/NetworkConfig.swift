@@ -7,14 +7,14 @@
 
 import Foundation
 
-public protocol NetworkConfigurable {
+protocol NetworkConfigurable {
     var baseURL: URL { get }
     var headers: [String: String] { get }
     var queryParameters: [String: String] { get }
     var timeoutInterval: TimeInterval { get }
 }
 
-public struct ApiDataNetworkConfig: NetworkConfigurable {
+struct ApiDataNetworkConfig: NetworkConfigurable {
     public let baseURL: URL
     public let headers: [String: String]
     public let queryParameters: [String: String]

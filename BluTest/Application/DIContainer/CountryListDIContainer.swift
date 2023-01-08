@@ -8,7 +8,8 @@
 import UIKit
 
 protocol CountryListDependencies {
-    func countryListViewModel(coordinator: CountryListFlows, selectedCountries: CountryList) -> CountryListViewModelInterface
+    func countryListViewModel(coordinator: CountryListFlows,
+                              selectedCountries: CountryList) -> CountryListViewModelInterface
     func imagesRepository() -> ImageRepositoryInterface
 }
 
@@ -27,7 +28,8 @@ final class CountryListDIContainer: CountryListDependencies {
 
     // MARK: - Persistent Storage
 
-    lazy var imageCacheStorage: ImageCacheStorageInterface = RealmImageCacheStorage(realmDB: dependencies.imageCacheService)
+    lazy var imageCacheStorage: ImageCacheStorageInterface = RealmImageCacheStorage(realmDB:
+                                                                                        dependencies.imageCacheService)
     
     // MARK: - Use Cases
 
@@ -48,7 +50,8 @@ final class CountryListDIContainer: CountryListDependencies {
     
     // MARK: - Country List
 
-    func countryListViewModel(coordinator: CountryListFlows, selectedCountries: CountryList) -> CountryListViewModelInterface {
+    func countryListViewModel(coordinator: CountryListFlows,
+                              selectedCountries: CountryList) -> CountryListViewModelInterface {
         return CountryListViewModel(countryListUseCase: makeCountryListUseCase(),
                                     coordinator: coordinator,
                                     selectedCountries: selectedCountries)

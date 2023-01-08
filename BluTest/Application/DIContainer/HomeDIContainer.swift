@@ -27,7 +27,8 @@ final class HomeDIContainer: HomeDependencies {
 
     // MARK: - Persistent Storage
 
-    lazy var imageCacheStorage: ImageCacheStorageInterface = RealmImageCacheStorage(realmDB: dependencies.imageCacheService)
+    lazy var imageCacheStorage: ImageCacheStorageInterface = RealmImageCacheStorage(realmDB:
+                                                                                        dependencies.imageCacheService)
 
     // MARK: - Repository
 

@@ -13,8 +13,7 @@ final class ImageRepository {
     private let imageCacheStorage: ImageCacheStorageInterface
 
     init(dataTransferService: DataTransferService,
-         imageCacheStorage: ImageCacheStorageInterface)
-    {
+         imageCacheStorage: ImageCacheStorageInterface) {
         self.dataTransferService = dataTransferService
         self.imageCacheStorage = imageCacheStorage
     }
